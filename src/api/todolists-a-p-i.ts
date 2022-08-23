@@ -8,7 +8,7 @@ const instance = axios.create({
         'API-KEY': 'd8114a5c-5d70-419b-bdfc-b392c1edb4fe'
     }
 })
-type TodolistType = {
+export type TodolistType = {
     id: string
     addedDate: string
     order: number
@@ -21,13 +21,29 @@ export type ResponseType<D = {}> = {
     messages: string[]
     resultCode: number
 }
+export  enum TaskStatuses {
+    New,
+    InProgress,
+    Completed,
+    Draft
+}
+export  enum Priorities {
+   Low,
+    Middle,
+    Hi,
+    Urgently,
+    Later
+}
+
 // model:
-type TaskType = {
+export type TaskType = {
     description: string
     title: string
-    completed: boolean
-    status: number
-    priority: number
+    // completed: boolean
+    status: TaskStatuses
+    // status: number
+    // priority: number
+    priority: Priorities
     startDate: string
     deadline: string
     id: string
